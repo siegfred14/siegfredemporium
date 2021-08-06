@@ -1,0 +1,24 @@
+install/upgrade python to latest version
+install pipenv -> pip install pipenv
+goto extension on vcode, search 'python' and install 'intelissence'
+cd into project folder and install django with pipenv
+    -> pipenv install django (this creates a virtual environment and installs django it)
+pipenv shell (to activate virtual environment)
+django-admin startproject siegfredemporium . (. is to create project in root directory, avoiding redundancy)
+    'manage.py' is used instead of 'django-admin', because it takes the settings of the project into account 
+
+runserver with 'python manage.py runserver 9000' to runserver on port 9000
+    or simply 'python manage.py runserver' to use default 8000'
+
+To configure vscode integrated terminal
+    goto view -> command palette
+    search python interpreter
+    select "enter interpreter path"
+    copy address of project interpreter (run pipenv --venv to get and copy address)
+    paste address and add '\bin\python' (/ for Mac)
+    when you get an error with running server, as you progress, just open a new terminal
+
+Install Django Rest framework
+    pipenv install djangorestframework
+Goto settings and add to apps
+    "rest_framework",
