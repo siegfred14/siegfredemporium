@@ -12,3 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
+
+    def validate(self, attrs):
+        if User.objects.filter(email=attrs['email']).exists():
+            raise serializers.ValidationError(
+                {'email', ('Email is already in use')})
+        return super().validate(attrs)
