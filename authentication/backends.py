@@ -15,8 +15,10 @@ class JWTAuthentication(authentication.BaseAuthentication):
 
         try:
             payload = jwt.decode(token, settings.JWT_SECRET_KEY)
+            
         except jwt.DecodeError as identifier:
-            raise exceptions.AuthenticationFailed(
-                'Your Token is Invalid, Please Login')
+            raise exceptions.AuthenticationFailed('Your Token is Invalid, Please Login')
+        except jwt.ExpiredSignatureError as identifier:
+            raise exceptions.AuthenticationFailed('Your Token is Expired, Please Login')
 
         return super().authenticate(request)
