@@ -3,6 +3,7 @@ from rest_framework.generics import GenericAPIView
 from .serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from django.conf import settings
 
 # Create your views here.
 
