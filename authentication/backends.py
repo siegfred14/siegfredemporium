@@ -1,5 +1,5 @@
 import jwt
-from rest_framework import authentication
+from rest_framework import authentication, exceptions
 from django.conf import settings
 
 
@@ -14,8 +14,9 @@ class JWTAuthentication(authentication.BaseAuthentication):
         prefix, token = auth_data.decode('utf-8').split(' ')
 
         try:
-            payload = jwt.decode(token, settings.JWT_SECRET_KET)
-        except expression as identifier:
-            pass
+            payload = jwt.decode(token, settings.JWT_SECRET_KEY)
+        except jwt.DecodeError as identifier:
+            raise exceptions.AuthenticationFailed(
+                'Your Token is Invalid, Please Login')
 
         return super().authenticate(request)
