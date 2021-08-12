@@ -36,6 +36,6 @@ class LoginView(GenericAPIView):
                 {'username': user.username}, settings.JWT_SECRET_KEY)
 
             serializer = UserSerializer(user)
-            data = {
-                "user": serializer.data
-            }
+            data = {'user': serializer.data, 'token': auth_token}
+
+        return Response({'detail': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
