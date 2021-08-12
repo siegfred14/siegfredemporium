@@ -28,4 +28,4 @@ class LoginView(GenericAPIView):
         email = data.get('email', '')
         username = data.get('username', '')
         password = data.get('password', '')
-        pass
+        user = auth.authenticate(username=username, password=password)
