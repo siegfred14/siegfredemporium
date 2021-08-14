@@ -15,13 +15,13 @@ class UserSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         email = attrs.get('email', '')
-        username = attrs.get('username', '')
+        # username = attrs.get('username', '')
         if User.objects.filter(email=email).exists():
             raise serializers.ValidationError(
                 {'email': ('Email is already in use')})
-        if User.objects.filter(username=username).exists():
-            raise serializers.ValidationError(
-                {'username': ('Username is already taken')})
+        # if User.objects.filter(username=username).exists():
+        #     raise serializers.ValidationError(
+        #         {'username': ('Username is already taken')})
         return super().validate(attrs)
 
     def create(self, validated_data):
