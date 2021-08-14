@@ -1,6 +1,6 @@
-from re import L
+# from re import L
 from django.urls import path
-from django.urls import path
+# from django.urls.resolvers import URLPattern
 from .views import RegisterView, LoginView
 
 
