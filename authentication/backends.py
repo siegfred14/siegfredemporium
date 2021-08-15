@@ -20,10 +20,8 @@ class JWTAuthentication(authentication.BaseAuthentication):
             return (user, token)
 
         except jwt.DecodeError as identifier:
-            raise exceptions.AuthenticationFailed(
-                'Your Token is Invalid, Please Login')
+            raise exceptions.AuthenticationFailed('Your Token is Invalid, Please Login')
         except jwt.ExpiredSignatureError as identifier:
-            raise exceptions.AuthenticationFailed(
-                'Your Token is Expired, Please Login')
+            raise exceptions.AuthenticationFailed('Your Token is Expired, Please Login')
 
         return super().authenticate(request)
