@@ -22,3 +22,12 @@ Install Django Rest framework
     pipenv install djangorestframework
 Goto settings and add to apps
     "rest_framework",
+
+create and register app auuthentication.py
+    - in it, create serializers.py and urls.py
+    - 
+
+    users [
+        thomasadigun@gmail.com - thomasadigun - siegfred
+        samanthasiegfred@gmail.com - samanthasiegfred - 123samantha
+    ]
